@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>抽奖</title>
+  <script src="./index.js"></script>
+  <script src="./user.js"></script>
+  <script src="./items.js"></script>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    width: 100%;
+    height: 100%;
+  }
+  
+  body {
+    width: 100%;
+    height: 100%;
+    background: url('./system/box5Bg.jpg') no-repeat;
+    background-size: 100% 106%;
+    font-family: "微软雅黑";
+  }
+  
+  header h1 {
+    padding-top: 20px;
+    text-align: center;
+  }
+  
+  main {
+    width: 1200px;
+    margin: 0 auto;
+    bottom: 10px;
+    top: 200px;
+    background: wheat;
+    position: absolute;
+    left: 50%;
+    margin-left: -600px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px red inset;
+  }
+  
+  section {
+    width: 800px;
+    float: left;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    position: relative;
+  }
+  
+  aside {
+    width: 400px;
+    float: left;
+    height: 100%;
+    box-sizing: border-box;
+    padding-right: 10px;
+    padding-top: 10px;
+    position: relative;
+  }
+  
+  .current-item {
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .current-item select {
+    width: 300px;
+    height: 40px;
+    text-indent: 10px;
+    font-size: 18px;
+    color: red;
+    opacity: .8;
+  }
+  
+  .users {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content:center;
+    font-size: 0px;
+  }
+  
+  .users .user {
+    height: 42px;
+    width: 42px;
+    box-sizing: border-box;
+    border: 1px solid red;
+    display: inline-block;
+  }
+  
+  .users .user img {
+    height: 40px;
+    width: 40px;
+  }
+  
+  .lucky-users {
+    list-style: none;
+    position: absolute;
+    top: 100px;
+    bottom: 10px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: -5px -5px 6px rgba(0, 0, 0, .1);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  .lucky-users li {
+    padding: 10px;
+  }
+  
+  .lucky-users img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    vertical-align: middle;
+    margin-right: 20px;
+  }
+  
+  .lucky-users .name {
+    vertical-align: middle;
+  }
+  
+  button {
+    height: 40px;
+    width: 120px;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+    border: none;
+    background: #590012;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    letter-spacing: 4px;
+    margin-right: 10px;
+  }
+  
+  button:hover {
+    background: #350215;
+  }
+  
+  button:last-child {
+    margin-right: 0px;
+  }
+  
+  .note {
+    margin-top: 20px;
+    font-size: 18px;
+    color: red;
+    opacity: .8;
+  }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>人力管家</h1></header>
+  <main>
+    <section>
+      <div class="current-item">
+        <label for="">当前奖项:</label>
+        <select id="jx-select">
+          <option value="-1">请选择奖项</option>
+        </select>
+      </div>
+      <div class="users">
+        <canvas id="canvas"></canvas>
+      </div>
+    </section>
+    <aside>
+      <div class="buttons">
+        <button id="start">开始</button>
+        <button id="end">结束</button>
+        <button id="copy">复制</button>
+      </div>
+      <p class="note">中奖名单:</p>
+      <ul class="lucky-users">
+      </ul>
+    </aside>
+  </main>
+</body>
+
+</html>
